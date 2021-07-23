@@ -27,9 +27,18 @@ public class DataSave : MonoBehaviour
 
     IEnumerator Run5s()
     {
-        for(int i=0; i<50;i++)
+        float TempAX, TempAY, TempAZ, TempRX, TempRY, TempRZ;
+        for (int i=0; i<50;i++)
         {
-            Data_Temp = Data_Temp + transform.position.x+"\t"+ transform.position.y + "\t" + transform.position.z + "\t" + transform.rotation.x + "\t" + transform.rotation.y + "\t" + transform.rotation.z + "\n";
+            
+            TempAX = (float)((int)(transform.position.x * 1000))/ 1000;
+            TempAY = (float)((int)(transform.position.y * 1000))/ 1000;
+            TempAZ = (float)((int)(transform.position.z * 1000))/ 1000;
+            TempRX = (float)((int)(transform.rotation.x * 1000))/ 1000;
+            TempRY = (float)((int)(transform.rotation.y * 1000))/ 1000;
+            TempRZ = (float)((int)(transform.rotation.z * 1000))/ 1000;
+
+            Data_Temp = Data_Temp + TempAX + "\t"+ TempAY + "\t" + TempAZ + "\t" + TempRX + "\t" + TempRY + "\t" + TempRZ + "\n";
             yield return new WaitForSeconds(0.1f);
         }
       
